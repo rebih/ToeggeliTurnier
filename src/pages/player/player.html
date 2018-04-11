@@ -1,0 +1,40 @@
+<!--
+  Generated template for the PlayerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TöggeliTurnier</ion-title>
+  </ion-navbar>
+
+<ion-toolbar>
+  <ion-searchbar [(ngModel)]="newPlayer" (keyup.enter)="addPlayer()" (ionCancel)="this.newPlayer=''" placeholder="Spieler hinzufügen"></ion-searchbar>
+  <ion-buttons end>
+    <button ion-button solid icon-right (click)="addPlayer()" style="marginright:12px;
+ padding:21px 16px 21px 16px">Add
+      <ion-icon name="md-add-circle"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content (ionScroll)="onScroll($event)">
+
+  <div padding>
+    <h2 style="color:#5b5b75">Vorhandene Spieler:</h2>
+  </div>
+
+  <ion-list no-padding>
+    <ion-item-sliding *ngFor="let item of needPlayers | async">
+      <ion-item >
+        <h1 *ngIf="item.isDone==false">{{item.value}}</h1>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
