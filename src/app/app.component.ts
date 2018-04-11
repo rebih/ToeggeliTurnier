@@ -26,7 +26,6 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'md-home' },
-      { title: 'Spieler', component: PlayerPage, icon: 'md-player' },
       { title: 'Turnier', component: TournamentPage, icon: 'md-grid' },
       { title: 'Spiel', component: MatchPage, icon: 'md-game-controller-b' },
       { title: 'Spielplan', component: PlayingSchedulePage, icon: 'md-calendar' },
