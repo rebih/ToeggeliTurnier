@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar color="primary">
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -15,5 +15,30 @@
 
 
 <ion-content padding>
+  <h1>Neues Turnier erstellen</h1>
+  <ion-item>
+    <ion-label color="primary" floating>Turniername</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary">Anzahl Teams</ion-label>
+    <ion-select [(ngModel)]="nroteams">
+      <ion-option value="3">3 Teams</ion-option>
+      <ion-option value="4">4 Teams</ion-option>
+      <ion-option value="5">5 Teams</ion-option>
+        <ion-option value="6">6 Teams</ion-option>
+        <ion-option value="7">7 Teams</ion-option>
+        <ion-option value="8">8 Teams</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <h2>Anzahl Teams</h2>
+
+  <button ion-button full>Zufällige Teams bilden</button>
+  <h1>Eigene Teams bilden</h1>
+
+  <h2>Team 1</h2>
+
 
 </ion-content>
