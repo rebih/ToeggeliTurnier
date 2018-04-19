@@ -15,5 +15,26 @@
 
 
 <ion-content padding>
-  
+  <h1>Team 1</h1>
+  <ion-item>
+  <ion-select>
+    <ion-option *ngFor="let item of needPlayers | async">
+      <ion-option>
+        <h1>{{item.value}}</h1>
+      </ion-option>
+    </ion-option>
+  </ion-select>
+</ion-item>
+  <button ion-button full>GOAL!</button>
+  <h1>Team 2</h1>
+  <ion-item>
+  <ion-select>
+    <ion-option *ngFor="let item of needPlayers | async">
+      <ion-option>
+        <h1>{{item.value}}</h1>
+      </ion-option>
+    </ion-option>
+  </ion-select>
+</ion-item>
+  <button ion-button full>GOAL!</button>
 </ion-content>

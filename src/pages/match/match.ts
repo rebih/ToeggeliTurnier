@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { FirebaseServiceProvider } from './../../providers/firebase-service/firebase-service';
+
 
 /**
  * Generated class for the MatchPage page.
@@ -15,7 +18,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MatchPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  needPlayers: Observable<any[]>;
+  newPlayer: any = '';
+
+  constructor(public navCtrl: NavController, public firebaseSerice: FirebaseServiceProvider) {
+    this.needPlayers = this.firebaseSerice.getPlayers();
   }
 
   ionViewDidLoad() {
