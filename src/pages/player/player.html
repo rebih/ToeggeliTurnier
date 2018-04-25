@@ -33,6 +33,7 @@
     <ion-item-sliding *ngFor="let item of needPlayers | async">
       <ion-item >
         <h1 *ngIf="item.isDone==false">{{item.value}}</h1>
+        <button ion-button (click)="removeEntry(item)" color="light" item-right><ion-icon name="trash"></ion-icon></button>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { FirebaseServiceProvider } from './../../providers/firebase-service/firebase-service';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireList } from 'angularfire2/database';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 
 /**
@@ -18,6 +20,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PlayerPage {
 
+  needPlayersRef: AngularFireList<any>;
   needPlayers: Observable<any[]>;
   newPlayer: any = '';
 
@@ -40,6 +43,14 @@ export class PlayerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PlayerPage');
+  }
+  removeEntry(item){
+   
+    
+    //todo
+    //this line doesn't work:
+    //this.needPlayersRef.remove(item);
+ 
   }
 
 }
