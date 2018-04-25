@@ -15,22 +15,30 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class FirebaseServiceProvider {
 
-  playersRef: AngularFireList<any>;
-  players: Observable<any[]>;
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
 
   constructor(public afd: AngularFireDatabase) {
-   this.playersRef = this.afd.list('/toeggeliPlayers/');
-   this.players = this.playersRef.snapshotChanges().map(changes => {
-     return changes.map(c=>({key: c.payload.key, ...c.payload.val()}));
-   });
+    this.itemsRef = this.afd.list('/weneedItems/');
+    this.items = this.itemsRef.snapshotChanges().map(changes => {
+    return changes.map(c => ({ key: c.payload.key, ...c.payload.val() })); });
+    }
 
-  }
-  getPlayers(){
-    return this.players;
-   }
-
-  addPlayer(newName){
-    return this.playersRef.push({value: newName, isDone: false});
-  }
+    getItems(){
+      return this.items;
+    }
+      addItem(newName) {
+      return this.itemsRef.push({ value: newName, isDone: false });
+      }
+      updateItem(key, newText) {
+      return this.itemsRef.update(key, { value: newText }); }
+      //sets an item to done or undone
+      doneItem(key, status) {
+      return this.itemsRef.update(key, { isDone: status });
+    }
+      deleteItem(key) {
+        this.itemsRef.remove(key)
+      };
+      
 
 }

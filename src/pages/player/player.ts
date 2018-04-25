@@ -4,6 +4,8 @@ import { FirebaseServiceProvider } from './../../providers/firebase-service/fire
 import { Observable } from 'rxjs/Observable';
 import { AngularFireList } from 'angularfire2/database';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {HttpModule} from '@angular/http';
+import {AngularFireModule} from 'angularfire2';
 
 
 /**
@@ -20,37 +22,46 @@ import {AngularFireDatabase} from 'angularfire2/database';
 })
 export class PlayerPage {
 
-  needPlayersRef: AngularFireList<any>;
-  needPlayers: Observable<any[]>;
-  newPlayer: any = '';
+itemsRef: AngularFireList<any>;
+items: Observable<any[]>;
 
-  @ViewChild(Content) content: Content;
+needItems: Observable<any[]>;
+newItem: any = '';
 
-  constructor(public navCtrl: NavController, public firebaseSerice: FirebaseServiceProvider) {
-    this.needPlayers = this.firebaseSerice.getPlayers();
+@ViewChild(Content) content: Content;
+
+constructor(public afd: AngularFireDatabase, public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
+  this.needItems = this.firebaseService.getItems();
+  this.itemsRef = this.afd.list('/weneedItems/');
+  this.items = this.itemsRef.snapshotChanges().map(changes => {
+    return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+  });
+}
+
+addItem(){
+  if(this.newItem.length === 0 || !this.newItem.trim()){
+  console.log("empty"); }else{
+  this.firebaseService.addItem(this.newItem).then(()=>{
+  this.newItem = "";
+  // this.keyboard.close();
+  this.content.scrollToBottom();
+  }); }
   }
 
-  addPlayer(){
-    if(this.newPlayer.length == 0 || !this.newPlayer.trim()){
-      console.log("empty");
-    }else{
-      this.firebaseSerice.addPlayer(this.newPlayer).then(()=>{
-        this.newPlayer = "";
-        this.content.scrollToBottom();
-      });
+    removeItem(id){ this.firebaseService.deleteItem(id);
     }
-  }
+
+    doneItem(key, status){ this.firebaseService.doneItem(key, status);
+    }
+    
+    onScroll(event){
+      // this.keyboard.close();
+      }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PlayerPage');
   }
-  removeEntry(item){
-   
-    
-    //todo
-    //this line doesn't work:
-    //this.needPlayersRef.remove(item);
- 
-  }
+
 
 }

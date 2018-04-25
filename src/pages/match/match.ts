@@ -21,8 +21,8 @@ export class MatchPage {
   needPlayers: Observable<any[]>;
   newPlayer: any = '';
 
-  constructor(public navCtrl: NavController, public firebaseSerice: FirebaseServiceProvider) {
-    this.needPlayers = this.firebaseSerice.getPlayers();
+  constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
+    this.needPlayers = this.firebaseService.getItems();
   }
 
   ionViewDidLoad() {

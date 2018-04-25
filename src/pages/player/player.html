@@ -13,9 +13,9 @@
   </ion-navbar>
 
 <ion-toolbar>
-  <ion-searchbar [(ngModel)]="newPlayer" (keyup.enter)="addPlayer()" (ionCancel)="this.newPlayer=''" placeholder="Spieler hinzufügen"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="newItem" (keyup.enter)="addItem()" (ionCancel)="this.newItem=''" placeholder="Spieler hinzufügen"></ion-searchbar>
   <ion-buttons end>
-    <button ion-button solid icon-right color="primary"(click)="addPlayer()" style="marginright:12px;
+    <button ion-button solid icon-right color="primary"(click)="addItem()" style="marginright:12px;
  padding:21px 16px 21px 16px">Add
       <ion-icon name="md-add-circle"></ion-icon>
     </button>
@@ -30,10 +30,10 @@
   </div>
 
   <ion-list no-padding>
-    <ion-item-sliding *ngFor="let item of needPlayers | async">
+    <ion-item-sliding *ngFor="let item of needItems | async">
       <ion-item >
         <h1 *ngIf="item.isDone==false">{{item.value}}</h1>
-        <button ion-button (click)="removeEntry(item)" color="light" item-right><ion-icon name="trash"></ion-icon></button>
+        <button ion-button (click)="removeItem(item.key)" color="light" item-right><ion-icon name="trash"></ion-icon></button>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
