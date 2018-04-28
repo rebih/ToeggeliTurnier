@@ -25,7 +25,7 @@
     </ion-option>
   </ion-select>
 </ion-item>
-  <button ion-button>GOAL!</button>
+  <button ion-button (click)="countTeam1()">GOAL!</button>
   <h1>Team 2</h1>
   <ion-item>
   <ion-select>
@@ -36,7 +36,7 @@
     </ion-option>
   </ion-select>
 </ion-item>
-  <button ion-button>GOAL!</button>
+  <button ion-button (click)="countTeam2()">GOAL!</button>
   <br>
-  <button ion-button full>SPIEL BEENDEN</button>
+  <button ion-button full (click)="closeAndSaveGame()">"SPIEL BEENDEN"</button>
 </ion-content>
