@@ -22,7 +22,7 @@ export class MatchPage {
   newPlayer: any = '';
 
   constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
-    this.needPlayers = this.firebaseService.getItems();
+    this.needPlayers = this.firebaseService.getPlayers();
   }
 
   ionViewDidLoad() {

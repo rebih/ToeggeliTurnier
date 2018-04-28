@@ -22,36 +22,36 @@ import {AngularFireModule} from 'angularfire2';
 })
 export class PlayerPage {
 
-itemsRef: AngularFireList<any>;
-items: Observable<any[]>;
+playerRef: AngularFireList<any>;
+player: Observable<any[]>;
 
-needItems: Observable<any[]>;
-newItem: any = '';
+needPlayers: Observable<any[]>;
+newPlayer: any = '';
 
 @ViewChild(Content) content: Content;
 
 constructor(public afd: AngularFireDatabase, public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
-  this.needItems = this.firebaseService.getItems();
-  this.itemsRef = this.afd.list('/weneedItems/');
-  this.items = this.itemsRef.snapshotChanges().map(changes => {
+  this.needPlayers = this.firebaseService.getPlayers();
+  this.playerRef = this.afd.list('/weneedItems/');
+  this.player = this.playerRef.snapshotChanges().map(changes => {
     return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
   });
 }
 
-addItem(){
-  if(this.newItem.length === 0 || !this.newItem.trim()){
+addPlayer(){
+  if(this.newPlayer.length === 0 || !this.newPlayer.trim()){
   console.log("empty"); }else{
-  this.firebaseService.addItem(this.newItem).then(()=>{
-  this.newItem = "";
+  this.firebaseService.addPlayer(this.newPlayer).then(()=>{
+  this.newPlayer = "";
   // this.keyboard.close();
   this.content.scrollToBottom();
   }); }
   }
 
-    removeItem(id){ this.firebaseService.deleteItem(id);
+    removePlayer(id){ this.firebaseService.deletePlayer(id);
     }
 
-    doneItem(key, status){ this.firebaseService.doneItem(key, status);
+    donePlayer(key, status){ this.firebaseService.donePlayer(key, status);
     }
     
     onScroll(event){
