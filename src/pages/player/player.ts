@@ -32,7 +32,7 @@ newPlayer: any = '';
 
 constructor(public afd: AngularFireDatabase, public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
   this.needPlayers = this.firebaseService.getPlayers();
-  this.playerRef = this.afd.list('/weneedItems/');
+  this.playerRef = this.afd.list('/Players/');
   this.player = this.playerRef.snapshotChanges().map(changes => {
     return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
   });

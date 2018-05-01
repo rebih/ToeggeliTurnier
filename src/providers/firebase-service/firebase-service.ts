@@ -19,7 +19,7 @@ export class FirebaseServiceProvider {
   player: Observable<any[]>;
 
   constructor(public afd: AngularFireDatabase) {
-    this.playerRef = this.afd.list('/weneedItems/');
+    this.playerRef = this.afd.list('/Players/');
     this.player = this.playerRef.snapshotChanges().map(changes => {
     return changes.map(c => ({ key: c.payload.key, ...c.payload.val() })); });
     }
@@ -28,7 +28,7 @@ export class FirebaseServiceProvider {
       return this.player;
     }
       addPlayer(newName) {
-      return this.playerRef.push({ value: newName, isDone: false });
+      return this.playerRef.push({ name: newName, matchCount: 0, win: 0, battering: 0, shootedGoal: 0, collectedGoal: 0  });
       }
       updatePlayer(key, newText) {
       return this.playerRef.update(key, { value: newText }); }

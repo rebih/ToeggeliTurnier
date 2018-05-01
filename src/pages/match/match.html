@@ -18,23 +18,44 @@
   <h1>Team 1</h1>
   <ion-item>
   <ion-select>
-    <ion-option *ngFor="let item of needPlayers | async">
+    <ion-option *ngFor="let player of needPlayers | async">
       <ion-option>
-        <h1>{{item.value}}</h1>
+        <h1>{{player.value}}</h1>
       </ion-option>
     </ion-option>
   </ion-select>
 </ion-item>
-  <button ion-button (click)="countTeam1()">GOAL!</button>
+<br>
+<ion-item>
+<ion-select>
+  <ion-option *ngFor="let player of needPlayers | async">
+    <ion-option>
+      <h1>{{player.value}}</h1>
+    </ion-option>
+  </ion-option>
+</ion-select>
+</ion-item>
+
+<button ion-button (click)="countTeam1()">GOAL!</button>
   <h1>Team 2</h1>
   <ion-item>
   <ion-select>
-    <ion-option *ngFor="let item of needPlayers | async">
+    <ion-option *ngFor="let player of needPlayers | async">
       <ion-option>
-        <h1>{{item.value}}</h1>
+        <h1>{{player.value}}</h1>
       </ion-option>
     </ion-option>
   </ion-select>
+</ion-item>
+<br>
+<ion-item>
+<ion-select>
+  <ion-option *ngFor="let player of needPlayers | async">
+    <ion-option>
+      <h1>{{player.value}}</h1>
+    </ion-option>
+  </ion-option>
+</ion-select>
 </ion-item>
   <button ion-button (click)="countTeam2()">GOAL!</button>
   <br>

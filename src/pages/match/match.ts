@@ -43,4 +43,5 @@ export class MatchPage {
     this.counterTeam2++;
   }
 
+
 }
