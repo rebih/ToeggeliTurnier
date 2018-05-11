@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {TournamentPage} from '../pages/tournament/tournament';
+//import {TournamentPage} from '../pages/tournament/tournament';
 import {MatchPage} from '../pages/match/match';
 import {PlayingSchedulePage} from '../pages/playing-schedule/playing-schedule';
 import {StatisticsPage} from '../pages/statistics/statistics';
@@ -33,7 +33,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     PlayerPage,
-    TournamentPage,
+    //TournamentPage,
     MatchPage,
     PlayingSchedulePage,
     StatisticsPage
@@ -49,7 +49,7 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    TournamentPage,
+    //TournamentPage,
     PlayerPage,
     MatchPage,
     PlayingSchedulePage,

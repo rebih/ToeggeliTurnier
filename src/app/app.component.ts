@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import {TournamentPage} from '../pages/tournament/tournament';
+//import {TournamentPage} from '../pages/tournament/tournament';
 import {MatchPage} from '../pages/match/match';
 import {PlayingSchedulePage} from '../pages/playing-schedule/playing-schedule';
 import {StatisticsPage} from '../pages/statistics/statistics';
@@ -26,7 +26,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'md-home' },
-      { title: 'Turnier', component: TournamentPage, icon: 'md-grid' },
+      //{ title: 'Turnier', component: TournamentPage, icon: 'md-grid' },
       { title: 'Spiel', component: MatchPage, icon: 'md-game-controller-b' },
       { title: 'Spielplan', component: PlayingSchedulePage, icon: 'md-calendar' },
       { title: 'Statistiken', component: StatisticsPage, icon: 'md-clipboard' }
