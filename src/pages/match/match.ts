@@ -32,6 +32,7 @@ export class MatchPage {
   }
 
   closeAndSaveGame(){
+    
     this.navCtrl.setRoot(HomePage);
   }
 

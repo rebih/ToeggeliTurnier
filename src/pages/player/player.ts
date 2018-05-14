@@ -48,11 +48,13 @@ addPlayer(){
   }); }
   }
 
+  updatePlayer(key, newMatchCount, newWin, newBattering, newShootedGoal, newCollectedGoal){
+    return this.playerRef.update(key, {matchCount: newMatchCount, win: newWin, battering: newBattering, shootedGoal: newShootedGoal, collectedGoal: newCollectedGoal});
+  }
+
     removePlayer(id){ this.firebaseService.deletePlayer(id);
     }
 
-    donePlayer(key, status){ this.firebaseService.donePlayer(key, status);
-    }
     
     onScroll(event){
       // this.keyboard.close();

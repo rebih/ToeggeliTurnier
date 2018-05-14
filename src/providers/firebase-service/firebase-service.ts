@@ -28,13 +28,24 @@ export class FirebaseServiceProvider {
       return this.player;
     }
       addPlayer(newName) {
-      return this.playerRef.push({ name: newName, matchCount: 0, win: 0, battering: 0, shootedGoal: 0, collectedGoal: 0  });
+      return this.playerRef.push({
+        name: newName,
+        matchCount: 0,
+        win: 0,
+        battering: 0,
+        shootedGoal: 0,
+        collectedGoal: 0
+      });
       }
-      updatePlayer(key, newText) {
-      return this.playerRef.update(key, { value: newText }); }
-      //sets an item to done or undone
-      donePlayer(key, status) {
-      return this.playerRef.update(key, { isDone: status });
+  updatePlayer(key, newMatchCount, newWin, newBattering, newShootedGoal, newCollectedGoal) {
+    return this.playerRef.update(
+      key, {
+      matchCount : newMatchCount,
+      win: newWin,
+      battering: newBattering,
+      shootedGoal: newShootedGoal,
+      collectedGoal: newCollectedGoal
+      });
     }
       deletePlayer(key) {
         this.playerRef.remove(key)
