@@ -22,10 +22,10 @@ export class MatchPage {
   newPlayer: any = '';
   counterTeam1 = 0;
   counterTeam2 = 0;
-  player1Team1 = "";
-  player2Team1 = "";
-  player1Team2 = "";
-  player2Team2 = "";
+  player1Team1:any = "";
+  player2Team1:any = "";
+  player1Team2:any = "";
+  player2Team2:any = "";
 
   constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
     this.needPlayers = this.firebaseService.getPlayers();
@@ -37,6 +37,8 @@ export class MatchPage {
 
   closeAndSaveGame(){
     
+
+    this.player1Team1.key
 
     this.navCtrl.setRoot(HomePage);
   }
