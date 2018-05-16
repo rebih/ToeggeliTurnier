@@ -19,13 +19,13 @@
     <ion-list>
         <h1>Team 1</h1>
         <ion-item>
-          <ion-label>Player</ion-label>
+          <ion-label>Player1</ion-label>
           <ion-select [(ngModel)]="player1Team1">
             <ion-option *ngFor="let player1Team1 of needPlayers | async" [value]="player1Team1">{{player1Team1.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Player</ion-label>
+            <ion-label>Player2</ion-label>
             <ion-select [(ngModel)]="player2Team1">
               <ion-option *ngFor="let player2Team1 of needPlayers | async" [value]="player2Team1">{{player2Team1.name}}</ion-option>
             </ion-select>
@@ -37,13 +37,13 @@
     <ion-list>
         <h1>Team 2</h1>
         <ion-item>
-          <ion-label>Player</ion-label>
+          <ion-label>Player1</ion-label>
           <ion-select [(ngModel)]="player1Team2">
             <ion-option *ngFor="let player1Team2 of needPlayers | async" [value]="player1Team2">{{player1Team2.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label>Player</ion-label>
+            <ion-label>Player2</ion-label>
             <ion-select [(ngModel)]="player2Team2">
               <ion-option *ngFor="let player2Team2 of needPlayers | async" [value]="player2Team2">{{player2Team2.name}}</ion-option>
             </ion-select>

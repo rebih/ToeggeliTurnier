@@ -35,10 +35,12 @@ export class MatchPage {
     console.log('ionViewDidLoad MatchPage');
   }
 
-  closeAndSaveGame(){
-    
+  updatePlayer1Team1() {
+    //this.firebaseService.updatePlayer(this.player1Team1.key, this.player1Team1.newMatchCount, this.player1Team1.newWin, this.player1Team1.newBattering, this.player1Team1.newShootedGoal, this.player1Team1.newCollectedGoal);
 
-    this.player1Team1.key
+  }
+
+  closeAndSaveGame(){
 
     this.navCtrl.setRoot(HomePage);
   }
