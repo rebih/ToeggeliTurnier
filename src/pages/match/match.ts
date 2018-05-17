@@ -20,8 +20,12 @@ export class MatchPage {
 
   needPlayers: Observable<any[]>;
   newPlayer: any = '';
+
+  //goal Counters per match
   counterTeam1 = 0;
   counterTeam2 = 0;
+
+  //choosen players per match
   player1Team1:any = "";
   player2Team1:any = "";
   player1Team2:any = "";
@@ -35,13 +39,16 @@ export class MatchPage {
     console.log('ionViewDidLoad MatchPage');
   }
 
-
+//update player information after match
   updatePlayer1Team1() {
     if (this.player1Team1.key != "") {
+      //team1 has won
       if (this.counterTeam1 > this.counterTeam2) {
         this.firebaseService.updatePlayer(this.player1Team1.key, this.player1Team1.matchCount + 1, this.player1Team1.win + 1, this.player1Team1.battering, this.player1Team1.shootedGoal + this.counterTeam1, this.player1Team1.collectedGoal + this.counterTeam2)
+      //team2 has won
       } else if (this.counterTeam1 < this.counterTeam2) {
         this.firebaseService.updatePlayer(this.player1Team1.key, this.player1Team1.matchCount + 1, this.player1Team1.win, this.player1Team1.battering + 1, this.player1Team1.shootedGoal + this.counterTeam1, this.player1Team1.collectedGoal + this.counterTeam2)
+      // tie
       } else {
         this.firebaseService.updatePlayer(this.player1Team1.key, this.player1Team1.matchCount + 1, this.player1Team1.win + 1, this.player1Team1.battering + 1, this.player1Team1.shootedGoal + this.counterTeam1, this.player1Team1.collectedGoal + this.counterTeam2)
       }
@@ -49,10 +56,13 @@ export class MatchPage {
   }
   updatePlayer2Team1() {
     if (this.player2Team1 != "") {
+      //team1 has won
       if (this.counterTeam1 > this.counterTeam2) {
         this.firebaseService.updatePlayer(this.player2Team1.key, this.player2Team1.matchCount + 1, this.player2Team1.win + 1, this.player2Team1.battering, this.player2Team1.shootedGoal + this.counterTeam1, this.player2Team1.collectedGoal + this.counterTeam2)
+      //team2 has won
       } else if (this.counterTeam1 < this.counterTeam2) {
         this.firebaseService.updatePlayer(this.player2Team1.key, this.player2Team1.matchCount + 1, this.player2Team1.win, this.player2Team1.battering + 1, this.player2Team1.shootedGoal + this.counterTeam1, this.player2Team1.collectedGoal + this.counterTeam2)
+      //tie
       } else {
         this.firebaseService.updatePlayer(this.player2Team1.key, this.player2Team1.matchCount + 1, this.player2Team1.win + 1, this.player2Team1.battering + 1, this.player2Team1.shootedGoal + this.counterTeam1, this.player2Team1.collectedGoal + this.counterTeam2)
       }
@@ -60,10 +70,13 @@ export class MatchPage {
   }
   updatePlayer1Team2() {
     if (this.player1Team2 != "") {
+      //team1 has won
       if (this.counterTeam2 > this.counterTeam1) {
         this.firebaseService.updatePlayer(this.player1Team2.key, this.player1Team2.matchCount + 1, this.player1Team2.win + 1, this.player1Team2.battering, this.player1Team2.shootedGoal + this.counterTeam1, this.player1Team2.collectedGoal + this.counterTeam2)
+      //team2 has won
       } else if (this.counterTeam2 < this.counterTeam1) {
         this.firebaseService.updatePlayer(this.player1Team2.key, this.player1Team2.matchCount + 1, this.player1Team2.win, this.player1Team2.battering + 1, this.player1Team2.shootedGoal + this.counterTeam1, this.player1Team2.collectedGoal + this.counterTeam2)
+      //tie
       } else {
         this.firebaseService.updatePlayer(this.player1Team2.key, this.player1Team2.matchCount + 1, this.player1Team2.win + 1, this.player1Team2.battering + 1, this.player1Team2.shootedGoal + this.counterTeam1, this.player1Team2.collectedGoal + this.counterTeam2)
       }
@@ -72,16 +85,20 @@ export class MatchPage {
   }
   updatePlayer2Team2() {
     if (this.player2Team2 != "") {
+      //team1 has won
       if (this.counterTeam2 > this.counterTeam1) {
         this.firebaseService.updatePlayer(this.player2Team2.key, this.player2Team2.matchCount + 1, this.player2Team2.win + 1, this.player2Team2.battering, this.player2Team1.shootedGoal + this.counterTeam1, this.player2Team2.collectedGoal + this.counterTeam2)
+      //team2 has won
       } else if (this.counterTeam2 < this.counterTeam1) {
         this.firebaseService.updatePlayer(this.player2Team2.key, this.player2Team2.matchCount + 1, this.player2Team2.win, this.player2Team2.battering + 1, this.player2Team2.shootedGoal + this.counterTeam1, this.player2Team2.collectedGoal + this.counterTeam2)
+      //tie
       } else {
         this.firebaseService.updatePlayer(this.player2Team2.key, this.player2Team2.matchCount + 1, this.player2Team2.win + 1, this.player2Team2.battering + 1, this.player2Team1.shootedGoal + this.counterTeam1, this.player2Team2.collectedGoal + this.counterTeam2)
       }
     }
   }
 
+  //close and save game after pressing "Spiel beenden" button
   closeAndSaveGame(){
     this.updatePlayer1Team1();
     this.updatePlayer2Team1();
@@ -90,6 +107,7 @@ export class MatchPage {
     this.navCtrl.setRoot(HomePage);
   }
 
+  //count goals
   countTeam1(){
     this.counterTeam1++;
 
