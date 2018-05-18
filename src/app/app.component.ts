@@ -28,7 +28,7 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'md-home' },
       //{ title: 'Turnier', component: TournamentPage, icon: 'md-grid' },
       { title: 'Spiel', component: MatchPage, icon: 'md-game-controller-b' },
-      { title: 'Spielplan', component: PlayingSchedulePage, icon: 'md-calendar' },
+      //{ title: 'Spielplan', component: PlayingSchedulePage, icon: 'md-calendar' },
       { title: 'Statistiken', component: StatisticsPage, icon: 'md-clipboard' }
     ];
 

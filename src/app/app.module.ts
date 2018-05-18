@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 //import {TournamentPage} from '../pages/tournament/tournament';
 import {MatchPage} from '../pages/match/match';
-import {PlayingSchedulePage} from '../pages/playing-schedule/playing-schedule';
+//import {PlayingSchedulePage} from '../pages/playing-schedule/playing-schedule';
 import {StatisticsPage} from '../pages/statistics/statistics';
 import {PlayerPage} from '../pages/player/player';
 
@@ -35,7 +35,7 @@ const firebaseConfig = {
     PlayerPage,
     //TournamentPage,
     MatchPage,
-    PlayingSchedulePage,
+    //PlayingSchedulePage,
     StatisticsPage
   ],
   imports: [
@@ -52,7 +52,7 @@ const firebaseConfig = {
     //TournamentPage,
     PlayerPage,
     MatchPage,
-    PlayingSchedulePage,
+   // PlayingSchedulePage,
     StatisticsPage
   ],
   providers: [
