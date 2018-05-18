@@ -105,12 +105,14 @@ export class MatchPage {
 
   //close and save game after pressing "Spiel beenden" button
   closeAndSaveGame(){
+    if(this.player1Team1 && this.player1Team2 != ""){
     this.updatePlayer1Team1();
     this.updatePlayer2Team1();
     this.updatePlayer1Team2();
     this.updatePlayer2Team2();
     this.navCtrl.setRoot(HomePage);
-    this.dialogs.alert("Spielstand gespeichert");
+    this.dialogs.alert("Spielstand gespeichert");}
+    else {this.dialogs.alert("Spieler definieren!")}
   }
 
   //count goals
