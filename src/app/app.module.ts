@@ -18,6 +18,9 @@ import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-
 import {HttpModule} from '@angular/http';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import {Dialogs} from '@ionic-native/dialogs'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaYdie94jWq0b-TRGs1-5rGHDAnnNb82E",
@@ -44,6 +47,7 @@ const firebaseConfig = {
     HttpModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    RoundProgressModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +63,8 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseServiceProvider
+    FirebaseServiceProvider,
+    Dialogs
   ]
 })
 export class AppModule {}

@@ -15,9 +15,29 @@
 
 
 <ion-content>
+    <h1>Team 1</h1>
+    
+<div class ="grid-container">
+    <div class ="grid-item" (click) ="countTeam1()">
 
+            <div class="progress-wrapper">
+              <div>
+         <round-progress 
+        [current]="counterTeam1" 
+        [max]="max"
+        [color]="'#C62828'"
+        [radius]="50"
+        [responsive]="false"
+        ></round-progress>
+      </div>
+      <div class="text">{{counterTeam1}}</div>
+            </div>
+      </div>
+      
+  <div class ="grid-item">
+    
     <ion-list>
-        <h1>Team 1</h1>
+        
         <ion-item>
           <ion-label>Player1</ion-label>
           <ion-select [(ngModel)]="player1Team1">
@@ -31,11 +51,34 @@
             </ion-select>
           </ion-item>
     </ion-list>
+  </div>
 
-    <button ion-button (click)="countTeam1()">GOAL!</button>
+  
+</div>
+    
+   <!-- <button ion-button (click)="countTeam1()">GOAL!</button> -->
 
+    <h1>Team 2</h1>
+    <div class ="grid-container">
+        <div class ="grid-item" (click) ="countTeam2()">
+    
+                <div class="progress-wrapper">
+                  <div>
+             <round-progress 
+            [current]="counterTeam2" 
+            [max]="max"
+            [color]="'#1565C0'"
+            [radius]="50"
+            [responsive]="false"
+            ></round-progress>
+          </div>
+          <div class="text">{{counterTeam2}}</div>
+                </div>
+          </div>
+
+<div class="grid-item">
     <ion-list>
-        <h1>Team 2</h1>
+
         <ion-item>
           <ion-label>Player1</ion-label>
           <ion-select [(ngModel)]="player1Team2">
@@ -49,8 +92,10 @@
             </ion-select>
           </ion-item>
     </ion-list>
+  </div>
+</div>
 
-  <button ion-button (click)="countTeam2()">GOAL!</button>
+<!--  <button ion-button (click)="countTeam2()">GOAL!</button> -->
   <br>
-  <button ion-button full (click)="closeAndSaveGame()">"SPIEL BEENDEN"</button>
+  <button ion-button full (click)="closeAndSaveGame()">SPIEL BEENDEN</button>
 </ion-content>

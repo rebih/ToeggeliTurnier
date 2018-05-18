@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseServiceProvider } from './../../providers/firebase-service/firebase-service';
 import {HomePage} from '../home/home';
+import { Dialogs } from '@ionic-native/dialogs';
 
 /**
  * Generated class for the MatchPage page.
@@ -22,8 +23,12 @@ export class MatchPage {
   newPlayer: any = '';
 
   //goal Counters per match
-  counterTeam1 = 0;
+  counterTeam1: number = 0;
   counterTeam2 = 0;
+
+  max = 10;
+  radius = 125;
+  semicircle =false;
 
   //choosen players per match
   player1Team1:any = "";
@@ -31,7 +36,7 @@ export class MatchPage {
   player1Team2:any = "";
   player2Team2:any = "";
 
-  constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
+  constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider, private dialogs: Dialogs) {
     this.needPlayers = this.firebaseService.getPlayers();
   }
 
@@ -109,12 +114,36 @@ export class MatchPage {
 
   //count goals
   countTeam1(){
-    this.counterTeam1++;
+    if (this.counterTeam1 <=9){
+    this.counterTeam1++;}
+    if(this.counterTeam1==10){
+      this.dialogs.alert("Herzlichen Glückwunsch Team 1")
+      //this.closeAndSaveGame()
+    }
 
   }
   countTeam2(){
-    this.counterTeam2++;
+    if (this.counterTeam2 <=9){
+    this.counterTeam2++;}
+    if(this.counterTeam2==10){
+      this.dialogs.alert("Herzlichen Glückwunsch Team 2")
+      //his.closeAndSaveGame()
+    }
   }
+  
+  getOverlayStyle() {
+    let isSemi = this.semicircle;
+    let transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
 
+    return {
+      'top': isSemi ? 'auto' : '50%',
+      'bottom': isSemi ? '5%' : 'auto',
+      'left': '50%',
+      'transform': transform,
+      '-moz-transform': transform,
+      '-webkit-transform': transform,
+      'font-size': this.radius / 3.5 + 'px'
+    };
+  }
 
 }
