@@ -110,6 +110,7 @@ export class MatchPage {
     this.updatePlayer1Team2();
     this.updatePlayer2Team2();
     this.navCtrl.setRoot(HomePage);
+    this.dialogs.alert("Spielstand gespeichert");
   }
 
   //count goals
