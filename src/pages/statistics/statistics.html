@@ -26,11 +26,16 @@
         <div class = "col">-</div>
      </div>
      
-      <!--
-     <div class = "row">
+      
+     <div class = "row" *ngFor="let player of needPlayers | async">
+        <div class = "col">{{player.name}}</div>
+        <div class = "col">{{player.matchCount}}</div>
+        <div class = "col">{{player.win}}</div>
+        <div class = "col">{{player.battering}}</div>
+        <div class = "col">{{player.shootedGoal}}</div>
+        <div class = "col">{{player.collectedGoal}}</div>
      </div>
      
-        foreach entry in database new row
-      -->
+    
 
 </ion-content>

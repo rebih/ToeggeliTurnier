@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseServiceProvider } from './../../providers/firebase-service/firebase-service';
+import { Observable } from 'rxjs/Observable';
+
+
 
 /**
  * Generated class for the StatisticsPage page.
@@ -15,7 +19,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StatisticsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  needPlayers: Observable<any[]>;
+
+  constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
+    this.needPlayers = this.firebaseService.getPlayers();
   }
 
   ionViewDidLoad() {
