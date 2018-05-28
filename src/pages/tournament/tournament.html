@@ -6,10 +6,19 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>TöggeliTurnier</ion-title>
+    <ion-grid class="table-without-border">
+        <ion-row class="table-without-border">
+          <ion-col col-1 class="table-without-border">
+              <button ion-button menuToggle class="navbar">
+                  <ion-icon name="menu"></ion-icon>
+                </button>
+          </ion-col>
+          <ion-col col-10 class="table-without-border">
+            <p>TöggeliTurnier</p>
+          </ion-col>
+          <ion-col col-1 class="table-without-border"></ion-col>
+        </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 

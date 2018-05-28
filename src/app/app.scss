@@ -14,3 +14,37 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-header {
+    ion-row {
+        padding: 0px;
+        border: 0px;
+    }
+    ion-col {
+        text-align: center;
+        padding: 0px;
+        border: 0px;
+    }
+}
+
+.table-without-border {
+    border: 0px;
+}
+.row-with-border {
+    border: solid 0.5px grey;
+}
+.col-with-border {
+    border: solid 0.5px grey;
+}
+
+p {
+    font-size:
+    1.3em;
+    vertical-align: middle;
+    color:white;
+}
+
+.navbar {
+    margin-top:
+    10px;
+}

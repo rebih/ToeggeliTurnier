@@ -17,7 +17,7 @@
 <ion-content padding>
 
 
-    <div class = "row">
+    <div class = "row statistics">
         <div class = "col">Player</div>
         <div class = "col">G</div>
         <div class = "col">W</div>
@@ -27,7 +27,7 @@
      </div>
      
       
-     <div class = "row" *ngFor="let player of needPlayers | async">
+     <div class = "row statistics" *ngFor="let player of needPlayers | async">
         <div class = "col">{{player.name}}</div>
         <div class = "col">{{player.matchCount}}</div>
         <div class = "col">{{player.win}}</div>
