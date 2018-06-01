@@ -7,7 +7,8 @@ The app ToggeliTurnier make it easy, to hold on the result of a tabletop footbal
 Prerequisite: Ionic 3
 
 To begin using this template, clone the repo and install the following packages:
-- npm install firebase angularfire2 --save
+- npm install firebase@4.12.1 --save
+- npm install angularfire2@5.0.0-rc.6.0 --save
 - npm install angular-svg-round-progressbar --save	
 
 ## Team
