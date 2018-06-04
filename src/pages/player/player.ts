@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, Button } from 'ionic-angular';
 import { FirebaseServiceProvider } from './../../providers/firebase-service/firebase-service';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireList } from 'angularfire2/database';
@@ -28,6 +28,7 @@ export class PlayerPage {
   allPlayers: Observable<any[]>;
   newPlayer: any = '';
   showSpinner: boolean = true
+  addButtonEnabled: boolean = false
 
   @ViewChild(Content) content: Content;
 
@@ -57,6 +58,15 @@ export class PlayerPage {
 
   removePlayer(id) {
     this.firebaseService.deletePlayer(id);
+  }
+
+  onInput() {
+    // Enable/disable the add player button if the (trimmed) input is empty
+    if (this.newPlayer != null && this.newPlayer.trim().length > 0) {
+      this.addButtonEnabled = true
+    } else {
+      this.addButtonEnabled = false
+    }
   }
 
   onScroll(event) {
