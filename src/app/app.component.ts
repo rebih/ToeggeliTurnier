@@ -25,9 +25,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'md-home' },
       { title: 'Spiel', component: MatchPage, icon: 'md-game-controller-b' },
+      { title: 'Spieler', component: PlayerPage, icon: 'md-person' },
       { title: 'Statistiken', component: StatisticsPage, icon: 'md-clipboard' }
     ];
-
   }
 
   initializeApp() {
@@ -40,8 +40,11 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    // If the selected page is the home page, set it as root of the navcontroller, else push it onto the stack
+    if (page.component == HomePage) {
+      this.nav.setRoot(page.component)
+    } else {
+      this.nav.push(page.component);
+    }
   }
 }
