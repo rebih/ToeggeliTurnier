@@ -1,40 +1,24 @@
 page-match {
-
-      .grid-container {
-        display: grid;
-        grid-template-columns: auto auto;
-        padding: 10px;
-      }
-      .grid-item {
-        padding: 20px;
-      }
-      
-    .progress-wrapper{
-        position: relative;
+  .progress-wrapper {
+    position: relative;
+  }
+  .progress-wrapper .text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center;
+    width: auto;
+    margin-left: 43px;
+    z-index: 1;
+  }
+  ion-item {
+    ion-label {
+      min-width: 30%;
     }
-
-    h1.teamTitle{
-      margin-left: 30px;
+    ion-select {
+      min-width: 70%;
     }
-    
-    .progress-wrapper .text{
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        text-align: center;
-        width: auto;
-        margin-left: 43px;
-        z-index: 1;
-    }
-
-    ion-item {
-      ion-label {
-        min-width: 30%;
-      }
-      ion-select {
-        min-width: 70%;
-      }
-    }
+  }
 }

@@ -7,102 +7,98 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-grid class="table-without-border">
-        <ion-row class="table-without-border">
-          <ion-col col-1 class="table-without-border">
-              <button ion-button menuToggle class="navbar">
-                  <ion-icon name="menu"></ion-icon>
-                </button>
-          </ion-col>
-          <ion-col col-10 class="table-without-border">
-            <p>TöggeliTurnier</p>
-          </ion-col>
-          <ion-col col-1 class="table-without-border"></ion-col>
-        </ion-row>
+      <ion-row class="table-without-border">
+        <ion-col col-1 class="table-without-border">
+          <button ion-button menuToggle class="navbar">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-10 class="table-without-border">
+          <p>TöggeliTurnier</p>
+        </ion-col>
+        <ion-col col-1 class="table-without-border"></ion-col>
+      </ion-row>
     </ion-grid>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content>
-    <h1 class="teamTitle">Team 1</h1>
-    
-<div class ="grid-container">
-    <div class ="grid-item" (click) ="countTeam1()">
+<ion-content padding>
 
-            <div class="progress-wrapper">
-              <div>
-         <round-progress 
-        [current]="counterTeam1" 
-        [max]="max"
-        [color]="'#C62828'"
-        [radius]="50"
-        [responsive]="false"
-        ></round-progress>
-      </div>
-      <div class="text">{{("0"+counterTeam1).slice(-2)}}</div>
-            </div>
-      </div>
-      
-  <div class ="grid-item">
-    
-    <ion-list>
-        
-        <ion-item>
-          <ion-label>Player1</ion-label>
-          <ion-select [(ngModel)]="player1Team1">
-            <ion-option *ngFor="let player1Team1 of needPlayers | async" [value]="player1Team1">{{player1Team1.name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
+  <!-- Team 1 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Team 1</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <!-- Team 1 goals -->
+      <ion-col col-4 (click)="countTeam(1)">
+        <div class="progress-wrapper">
+          <round-progress [current]="counterTeam1" [max]="max" [color]="'#C62828'" [radius]="50" [responsive]="false"></round-progress>
+          <div class="text">{{("0"+counterTeam1).slice(-2)}}</div>
+        </div>
+      </ion-col>
+
+      <!-- Team 1 players -->
+      <ion-col col-8>
+        <ion-list>
+          <ion-item>
+            <ion-label>Player1</ion-label>
+            <ion-select [(ngModel)]="player1Team1">
+              <ion-option *ngFor="let player1Team1 of allPlayers | async" [value]="player1Team1">{{player1Team1.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
             <ion-label>Player2</ion-label>
             <ion-select [(ngModel)]="player2Team1">
-              <ion-option *ngFor="let player2Team1 of needPlayers | async" [value]="player2Team1">{{player2Team1.name}}</ion-option>
+              <ion-option *ngFor="let player2Team1 of allPlayers | async" [value]="player2Team1">{{player2Team1.name}}</ion-option>
             </ion-select>
           </ion-item>
-    </ion-list>
-  </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  
-</div>
-    
+  <!-- Team 2 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Team 2</h1>
+      </ion-col>
+    </ion-row>
 
-    <h1 class="teamTitle">Team 2</h1>
-    <div class ="grid-container">
-        <div class ="grid-item" (click) ="countTeam2()">
-    
-                <div class="progress-wrapper">
-                  <div>
-             <round-progress 
-            [current]="counterTeam2" 
-            [max]="max"
-            [color]="'#1565C0'"
-            [radius]="50"
-            [responsive]="false"
-            ></round-progress>
-          </div>
+    <ion-row>
+      <!-- Team 2 goals -->
+      <ion-col col-4 (click)="countTeam(2)">
+        <div class="progress-wrapper">
+          <round-progress [current]="counterTeam2" [max]="max" [color]="'#1565C0'" [radius]="50" [responsive]="false"></round-progress>
           <div class="text">{{("0"+counterTeam2).slice(-2)}}</div>
-                </div>
-          </div>
+        </div>
+      </ion-col>
 
-<div class="grid-item">
-    <ion-list>
-
-        <ion-item>
-          <ion-label>Player1</ion-label>
-          <ion-select [(ngModel)]="player1Team2">
-            <ion-option *ngFor="let player1Team2 of needPlayers | async" [value]="player1Team2">{{player1Team2.name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
+      <!-- Team 1 players -->
+      <ion-col col-8>
+        <ion-list>
+          <ion-item>
+            <ion-label>Player1</ion-label>
+            <ion-select [(ngModel)]="player1Team2">
+              <ion-option *ngFor="let player1Team2 of allPlayers | async" [value]="player1Team2">{{player1Team2.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
             <ion-label>Player2</ion-label>
             <ion-select [(ngModel)]="player2Team2">
-              <ion-option *ngFor="let player2Team2 of needPlayers | async" [value]="player2Team2">{{player2Team2.name}}</ion-option>
+              <ion-option *ngFor="let player2Team2 of allPlayers | async" [value]="player2Team2">{{player2Team2.name}}</ion-option>
             </ion-select>
           </ion-item>
-    </ion-list>
-  </div>
-</div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <br>
-  <button ion-button full (click)="closeAndSaveGame()">SPIEL BEENDEN</button>
+  <button ion-button full (click)="closeAndSaveGame()">Spiel beenden</button>
 </ion-content>
