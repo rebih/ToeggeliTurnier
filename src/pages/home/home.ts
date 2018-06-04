@@ -13,10 +13,10 @@ export class HomePage {
   }
 
   OpenPlayerPage(){
-    this.navCtrl.setRoot(PlayerPage);
+    this.navCtrl.push(PlayerPage);
   }
 
   OpenMatchPage(){
-    this.navCtrl.setRoot(MatchPage)
+    this.navCtrl.push(MatchPage)
   }
 }
