@@ -8,43 +8,41 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-grid class="table-without-border">
-        <ion-row class="table-without-border">
-          <ion-col col-1 class="table-without-border">
-              <button ion-button menuToggle class="navbar">
-                  <ion-icon name="menu"></ion-icon>
-                </button>
-          </ion-col>
-          <ion-col col-10 class="table-without-border">
-            <p>TöggeliTurnier</p>
-          </ion-col>
-          <ion-col col-1 class="table-without-border"></ion-col>
-        </ion-row>
+      <ion-row class="table-without-border">
+        <ion-col col-1 class="table-without-border">
+          <button ion-button menuToggle class="navbar">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-10 class="table-without-border">
+          <p>TöggeliTurnier</p>
+        </ion-col>
+        <ion-col col-1 class="table-without-border"></ion-col>
+      </ion-row>
     </ion-grid>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-grid class="statistics">
+    <ion-row class="header">
+      <ion-col>Spieler</ion-col>
+      <ion-col class="centered">G</ion-col>
+      <ion-col class="centered">W</ion-col>
+      <ion-col class="centered">L</ion-col>
+      <ion-col class="centered">+</ion-col>
+      <ion-col class="centered">-</ion-col>
+    </ion-row>
 
+    <ion-row *ngFor="let player of allPlayers | async">
+      <ion-col>{{player.name}}</ion-col>
+      <ion-col class="centered">{{player.matchCount}}</ion-col>
+      <ion-col class="centered">{{player.win}}</ion-col>
+      <ion-col class="centered">{{player.battering}}</ion-col>
+      <ion-col class="centered">{{player.shootedGoal}}</ion-col>
+      <ion-col class="centered">{{player.collectedGoal}}</ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <div class = "row statistics">
-        <div class = "col">Player</div>
-        <div class = "col">G</div>
-        <div class = "col">W</div>
-        <div class = "col">L</div>
-        <div class = "col">+</div>
-        <div class = "col">-</div>
-     </div>
-     
-      
-     <div class = "row statistics" *ngFor="let player of needPlayers | async">
-        <div class = "col">{{player.name}}</div>
-        <div class = "col">{{player.matchCount}}</div>
-        <div class = "col">{{player.win}}</div>
-        <div class = "col">{{player.battering}}</div>
-        <div class = "col">{{player.shootedGoal}}</div>
-        <div class = "col">{{player.collectedGoal}}</div>
-     </div>
-     
-    
-
+  <ion-spinner id="loading" *ngIf="showSpinner"></ion-spinner>
 </ion-content>

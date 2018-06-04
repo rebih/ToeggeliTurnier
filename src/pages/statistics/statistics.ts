@@ -19,14 +19,16 @@ import { Observable } from 'rxjs/Observable';
 })
 export class StatisticsPage {
 
-  needPlayers: Observable<any[]>;
+  allPlayers: Observable<any[]>;
+  showSpinner: boolean = true
 
   constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider) {
-    this.needPlayers = this.firebaseService.getPlayers();
+    this.allPlayers = this.firebaseService.getPlayers();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatisticsPage');
+    this.allPlayers.subscribe(() => this.showSpinner = false)
   }
 
 }

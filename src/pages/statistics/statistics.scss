@@ -1,11 +1,20 @@
-
-
-
-.row.statistics .col {
-    border: solid 0.5px grey;
-
+#loading {
+    display: block;
+    margin: auto;
 }
 
-.row.statistics {
-    border: solid 0.5px grey;
+.statistics {
+  .header {
+    font-weight: bold;
+  }
+  .row,
+  .col {
+    border-bottom: solid 0.5px rgba(0, 0, 0, 0.12);
+    &.centered {
+      text-align: center;
+    }
+  }
+  .row:nth-child(even) {
+    background-color: rgba(242, 242, 242, 0.5);
+  }
 }
